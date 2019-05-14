@@ -1,0 +1,71 @@
+<header>
+  <div class="top-menu" style="background:#000000;color:White;">
+      Alba Moda
+  </div>
+  <div class="top-menu" >
+      <ul class="left-area welcome-area">
+          <li class="hello-blog">
+              <!-- {% if user.is_authenticated %}
+                  Hello, {{user.username}}! welcome to my blog:)
+              {% else %}
+                  Hello nice people, welcome to my blog!
+              {% endif %} -->
+          </li>
+      </ul><!-- left-area -->
+
+    <div class="right-area">
+
+      <div class="src-area">
+                  <!-- <form method="GET" action="{%url 'search'%}"> -->
+                      <input class="src-input" type="text" placeholder="Search" name = "title">
+          <button class="src-btn" type="submit"></button>
+        <!-- </form> -->
+      </div><!-- src-area -->
+
+              <ul class="social-icons">
+        <!-- <li><a href="#"><img src="{%static 'images/facebook.png'%}"></a></li>
+        <li><a href="#"><img src="{%static 'images/insta.png'%}"></a></li>
+        <li><a href="#"><img src="{%static 'images/twitter.png'%}"></a></li> -->
+      </ul><!-- right-area -->
+
+              <ul class="social-icons" style="color:Black;">
+                  <!-- {% if user.is_authenticated %}
+                      <li>
+                          <a href="{% url 'logout' %}">Logout</a>
+                      </li>
+                  {% else %}
+                      <li>
+                          <a href="{% url 'login' %}">Login</a>
+                      </li>
+                      <li>
+                          <a href="{% url 'register' %}">Register</a>
+                      </li>
+                  {% endif %} -->
+              </ul>
+
+    </div><!-- right-area -->
+
+  </div><!-- top-menu -->
+
+  <div class="middle-menu center-text" style="height:150px;">
+          <a href="#" class="logo" style="height:200px;margin-top:-27px;width:300px;">
+              <!-- <img src="{%static 'images/alba.jpg'%}" alt="Logo Image"> -->
+          </a>
+      </div>
+
+  <div class="bottom-area">
+    <ul class="main-menu visible-on-click" id="main-menu">
+
+              <!-- <li><a href="{%url 'home'%}">HOME</a></li>
+      <li class="drop-down"><a href="#">CATEGORIES<i class="ion-ios-arrow-down"></i></a>
+                  <ul class="drop-down-menu">
+          <li><a href="{%url 'post' 1%}">STYLE</a></li>
+          <li><a href="{%url 'post' 2%}">BEAUTY</a></li>
+                      <li><a href="{%url 'post' 3%}">LIFESTYLE</a></li>
+                  </ul>
+              </li>
+              <li><a href="{%url 'about'%}">ABOUT</a></li>
+              <li><a href="{%url 'pro'%}">STORE</a></li> -->
+    </ul><!-- main-menu -->
+  </div><!-- conatiner -->
+</header>
