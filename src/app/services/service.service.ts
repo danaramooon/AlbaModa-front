@@ -1,7 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {MainService} from './main.service';
 import {HttpClient} from '@angular/common/http';
-import {TaskList, Task, IAuthResponse, IUser} from '../models/models';
+import {Post, Comment,Category, IAuthResponse, IUser} from '../models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -14,45 +14,43 @@ export class ServiceService extends MainService {
     super(http);
   }
 
-  getCategories(): Promise<TaskList[]> {
-    return this.get('http://localhost:8000/api/cbv/task_lists/', {});
+  getPosts(): Promise<Post[]> {
+    return this.get('http://localhost:8000/post/', {});
   }
 
-  getProducts(list: TaskList): Promise<Task[]> {
+  getProducts(list: Post): Promise<Comment[]> {
     return this.get(`http://localhost:8000/api/task_lists/${list.id}/tasks/`, {});
   }
-  getDetailedProducts(list: number): Promise<Task> {
+  getDetailedProducts(list: number): Promise<Comment> {
     return this.get(`http://localhost:8000/api/task/${list}`, {});
   }
-  createTaskList(name: any,owner : string): Promise<TaskList> {
+  createPost(name: any,owner : string): Promise<Post> {
     return this.post('http://localhost:8000/api/cbv/task_lists/create/', {
       name: name,
       owner: owner
     });
   }
   
-  updateTaskList(list: TaskList): Promise<TaskList> {
+  updatePost(list: Post): Promise<Post> {
     return this.put(`http://localhost:8000/api/cbv/task_lists/${list.id}/`, {
-      name: list.name
+      name: list.title
     });
   }
-  deleteTaskList(id: number): Promise<any> {
+  deletePost(id: number): Promise<any> {
     return this.delet(`http://localhost:8000/api/cbv/task_lists/${id}/`, {});
   }
 
-  createTask(name: any,due_on:any,status:any,list:number): Promise<Task> {
+  createTask(name: any,due_on:any,status:any,list:number): Promise<Comment> {
     return this.post(`http://localhost:8000/api/cbv/task_lists/${list}/tasks/create/`, {
       name: name,
       due_on:due_on,
       status:status
     });
   }
-  updateTask(task: Task) : Promise<Task>{
+  updateTask(task: Comment) : Promise<Comment>{
     return this.put(`http://localhost:8000/api/task/${task.id}/`, {
-      name: task.name,
-      created_at: task.created_at,
-      due_on: task.due_on,
-      status: task.status
+      name: task.comment,
+      created_at: task.date
     })
   }
 

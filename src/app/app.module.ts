@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { CarouselComponent } from './carousel/carousel.component';
-
+import { PostListComponent } from './post-list/post-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +19,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     LoginComponent,
     RegistrationComponent,
     CarouselComponent,
+    PostListComponent
   ],
   imports: [
     BrowserModule,
