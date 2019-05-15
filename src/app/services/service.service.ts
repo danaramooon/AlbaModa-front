@@ -1,7 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {MainService} from './main.service';
 import {HttpClient} from '@angular/common/http';
-import {Post, Comment,Category, IAuthResponse, IUser} from '../models/models';
+import {Post, Comment,Category, IAuthResponse, IUser, Product} from '../models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +18,7 @@ export class ServiceService extends MainService {
     return this.get('http://localhost:8000/post/', {});
   }
 
-  getProducts(list: Post): Promise<Comment[]> {
-    return this.get(`http://localhost:8000/api/task_lists/${list.id}/tasks/`, {});
-  }
+  
   getDetailedProducts(list: number): Promise<Comment> {
     return this.get(`http://localhost:8000/api/task/${list}`, {});
   }
@@ -58,5 +56,8 @@ export class ServiceService extends MainService {
     return this.delet(`http://localhost:8000/api/task/${id}/`, {})
   }
 
+  getProducts(): Promise<Product[]> {
+    return this.get(`http://localhost:8000/products/`, {})
+  }
   
 }

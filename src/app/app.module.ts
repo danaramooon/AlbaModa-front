@@ -12,6 +12,9 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { PostListComponent } from './post-list/post-list.component';
+import { AboutComponent } from './about/about.component';
+import { StoreComponent } from './store/store.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,13 +22,15 @@ import { PostListComponent } from './post-list/post-list.component';
     LoginComponent,
     RegistrationComponent,
     CarouselComponent,
-    PostListComponent
+    PostListComponent,
+    AboutComponent,
+    StoreComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [ServiceService,
     <ClassProvider> {
