@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{%block container%}
+ <div class="boxes" style="margin-top:250px;">
+	<div>
+        {%for p in products%}
+            <div class="box">
+                <img src="{{p.img_src}}" class = "box_img">
+                <h4 class = "boxh4">{{p.name}}</h4>
+                <div class="buy"><button>BUY <h4> {{p.price}}</h4></button></div>
+            </div>
+             <!--<div class="box"><img src="/static/images/za14.jpg" alt=""><h4>СУМКА-МЕШОК С БУСИНАМИ </h4><a href="../orders/index.html"></a><button>BUY <h5> 15 990.00 kzt </h5><h6>14 000 kzt</h6></button></div>-->
+            <!--<div class="box"><img src="/static/images/za15.jpg" alt=""><h4>САПОГИ БАРХАТНЫЕ НА КАБЛУКЕ </h4><a href="../orders/index.html"></a><button>BUY <h5> 30 990.00 kzt </h5><h6>28 000 kzt</h6></button></div>-->
+        {%endfor%}
+    </div>
+ </div>
+{%endblock%}
