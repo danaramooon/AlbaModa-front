@@ -59,5 +59,9 @@ export class ServiceService extends MainService {
   getProducts(): Promise<Product[]> {
     return this.get(`http://localhost:8000/products/`, {})
   }
+
+  getDetailProducts(id: number): Promise<Product[]> {
+    return this.get(`http://localhost:8000/products/${id}/`, {})
+  }
   
 }

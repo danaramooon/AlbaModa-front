@@ -10,6 +10,9 @@ import { Product} from '../models/models';
 export class StoreComponent implements OnInit {
   
   public products: Product[] = [];
+  public products_name: any='';
+  public products_price: any='';
+
   constructor(private provider: ServiceService) {
 
    }
@@ -18,6 +21,9 @@ export class StoreComponent implements OnInit {
     this.provider.getProducts().then(res => {
       console.log(res);
       this.products = res;
+    })
+    this.provider.getDetailProducts(this.products_name).then(res => {
+      this.products_price = '';
     })
 
   }

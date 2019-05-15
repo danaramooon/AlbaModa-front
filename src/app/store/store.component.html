@@ -1,6 +1,6 @@
 <div class="boxes" style="margin-top:250px;" >
-	<div >
-            <div class="box" *ngFor="let p of products">
+	<div *ngFor="let p of products" >
+            <div class="box" >
                 <img src="/assets{{p.img_src}}" class = "box_img">
                 <h4 class = "boxh4">{{p.name}}</h4>
                 <div class="buy"><button>BUY <h4> {{p.price}}</h4></button></div>
