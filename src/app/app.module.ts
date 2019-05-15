@@ -10,6 +10,7 @@ import { AuthInterceptor } from './AuthInterceptor';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { RegistrationComponent } from './registration/registration.component';
     HeaderComponent,
     LoginComponent,
     RegistrationComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,

@@ -144,7 +144,7 @@ header .logo img{ height: 100%; width: auto; }
 
 /* BOTTOM AREA */
 
-header .bottom-area{ text-align: center; position: fixed;  top: 0;}
+header .bottom-area{ text-align: center; }
 
 header .main-menu{ font-weight: 500; }
 
@@ -182,9 +182,9 @@ header .main-menu li.drop-down > ul.drop-down-inner{ top: 0; left: auto; left: 1
 
 /* DROPDOWN HOVER */
 
-header .main-menu li a.mouseover{ background: #F2F3F4; }
+header .main-menu li:hover { background: #F2F3F4; }
 
-header .main-menu li.drop-down a.mouseover + ul.drop-down-menu{ display: block;
+header .main-menu li:hover ul.drop-down-menu{ display: block;
 	animation: full-opacity-anim .2s forwards; }
 
 
