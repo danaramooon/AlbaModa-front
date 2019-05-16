@@ -22,9 +22,10 @@ export class ServiceService extends MainService {
   getDetailedProducts(list: number): Promise<Comment> {
     return this.get(`http://localhost:8000/api/task/${list}`, {});
   }
-  createPost(name: any,owner : string): Promise<Post> {
-    return this.post('http://localhost:8000/api/cbv/task_lists/create/', {
-      name: name,
+  
+  createPost(title: any,owner : string): Promise<Post> {
+    return this.post('http://localhost:8000/post_create', {
+      title: title,   
       owner: owner
     });
   }

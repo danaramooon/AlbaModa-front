@@ -14,6 +14,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { AboutComponent } from './about/about.component';
 import { StoreComponent } from './store/store.component';
+import { AddPostComponent } from './add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { StoreComponent } from './store/store.component';
     PostListComponent,
     AboutComponent,
     StoreComponent,
+    AddPostComponent,
   ],
   imports: [
     BrowserModule,
