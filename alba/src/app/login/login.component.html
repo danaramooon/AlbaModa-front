@@ -1,0 +1,25 @@
+<ng-container>
+    <div class="mt-5" style="margin-top:330px;">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control w-25" placeholder="Enter username" [(ngModel)]="username">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control w-25" placeholder="Password" [(ngModel)]="password">
+      </div>
+      <div>
+       
+          <button type="submit" class="btn btn-primary mb-2" (click)="login()">
+          Log in
+        </button>
+      </div>
+      <div *ngIf="!auth_.isAuthenticated()">
+        <h3>Invalid data. Try Again!</h3>
+      </div>
+      <div *ngIf="auth_.isAuthenticated() && auth_.isToken()">
+          <h3>Show post in home</h3>
+        </div>
+    </div>
+  </ng-container>
+  

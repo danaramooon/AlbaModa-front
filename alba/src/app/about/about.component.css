@@ -1,0 +1,24 @@
+.aboutus{
+    text-align: center;
+    font-family: GaramondPremrPro, serif;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: bold;   
+}
+.text{
+    text-align: center;
+    font-family: GaramondPremrPro, serif;
+    font-size: 18px;
+}
+.image{
+    width:100%;
+    height:560px;
+}
+.image-wrapper{
+    margin-bottom:40px;
+}
+.block{
+    margin:30px;
+    padding: 15px;
+    margin-top:330px;
+}

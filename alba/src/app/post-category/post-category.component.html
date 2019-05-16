@@ -1,0 +1,95 @@
+<app-carousel [title]="'new Life Style'" [category]="'LifeStyle'" [imgPath]="'/assets/static/images/be.jpg'"></app-carousel>
+
+<section class="section blog-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="blog-posts" *ngFor= "let post of posts">
+                    <div class="single-post">
+                        <div class="image-wrapper"><img src="/assets{{post.img_src}}" alt="Blog Image"></div>
+
+                        <div class="icons">
+                            <div class="left-area">
+                                <a class="btn caegory-btn" href = "/category/{{post.category.id}}"><b>{{post.category.name}}</b></a>
+                            </div>
+                            <ul class="right-area social-icons">
+                                <li><a href="#"><i class="ion-android-share-alt"></i>Likes</a></li>
+                                <li><a routerLink="like/{{post.id}}"><i class="ion-android-favorite-outline"></i>{{post.like}}</a></li>
+                            </ul>
+                        </div>
+                        <p class="date"><em>{{post.date}}</em></p>
+                        <h3 class="title"><a routerLink="/post_detail/{{post.id}}/"><b class="light-color">{{post.title}}</b></a></h3>
+                        <p class = "ell_text">{{post.text}}</p>
+                        <a class="btn read-more-btn" routerLink="/post_detail/{{post.id}}/"><b>READ MORE</b></a>
+                    </div><!-- single-post -->
+                 </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+					<div class="sidebar-area">
+
+						<div class="sidebar-section about-author center-text">
+							<div class="author-image"><img src="/assets/static/images/cup.jpg" alt="Autohr Image"></div>
+
+							<ul class="social-icons">
+								<li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
+								<li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
+								<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+								<li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
+								<li><a href="#"><i class="ion-social-pinterest-outline"></i></a></li>
+							</ul><!-- right-area -->
+
+							<h4 class="author-name"><b class="light-color">Alba Moda</b></h4>
+							<p>3 year KBTU students. Favourite subject is Web Tech.</p>
+
+							<a class="read-more-link" href="/about/"><b>READ MORE</b></a>
+                            <br>
+                            <!-- {%if user.is_superuser%}
+                                <a class="btn read-more-btn" href="{%url 'create_post'%}">
+                                    <b>ADD POST</b>
+                                </a>
+                            {%endif%} -->
+						</div><!-- sidebar-section about-author -->
+
+						<div class="sidebar-section src-area">
+                            <form method="GET" >
+                                                          <!-- action="{%url 'search'%}" -->
+                                <input class="src-input" type="text" placeholder="Search" name = "title">
+                                <button class="src-btn" type="submit"></button>
+                            </form>
+						</div><!-- sidebar-section src-area -->
+
+						<div class="sidebar-section newsletter-area">
+							<h5 class="title"><b>Subscribe to our newsletter</b></h5>
+							<form action="post">
+								<input class="email-input" type="text" placeholder="Your email here">
+								<button class="btn btn-2" type="submit">SUBSCRIBE</button>
+							</form>
+						</div><!-- sidebar-section newsletter-area -->
+
+						<div class="sidebar-section category-area">
+							<h4 class="title"><b class="light-color">Categories</b></h4>
+							<a class="category" href="/category/1/">
+								<img src="/assets/static/images/fas.jpg" alt="Category Image">
+								<h6 class="name">STYLE</h6>
+							</a>
+
+							<a class="category" href="/category/2/">
+								<img src="/assets/static/images/b.jpg" alt="Category Image">
+								<h6 class="name">BEAUTY</h6>
+							</a>
+
+							<a class="category" href="/category/3/">
+								<img src="/assets/static/images/ls.jpg" alt="Category Image">
+								<h6 class="name">LIFESTYLE</h6>
+							</a>
+
+						</div><!-- sidebar-section category-area -->
+
+
+					</div><!-- about-author -->
+				</div><!-- col-lg-4 -->
+
+			</div><!-- row -->
+		</div><!-- container -->
+
+</section>

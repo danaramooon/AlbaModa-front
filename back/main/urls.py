@@ -26,4 +26,6 @@ urlpatterns=[
     path('products/<int:pk>/update/',views.ProductUpdateView.as_view()),
     path('products/<int:pk>/delete/',views.ProductDeleteView.as_view()),
     path('post/<int:pk>/likes/', PostLike_list.as_view()),
+
+    path('post/category/<int:pk>/',views.PostByCategoryView.as_view())
 ]

@@ -27,17 +27,9 @@ def post_create(request):
     return Response(serializer.errors,status= status.HTTP_400_BAD_REQUEST)
 
 
-class PostDetail(APIView):
-    def get_object(self, pk):
-        try:
-            return Post.objects.get(pk=pk)
-        except Post.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-
-    def get(self, pk):
-        task = self.get_object(pk)
-        serializer = PostModelSerializer(task)
-        return Response(serializer.data)
+class PostDetail(generics.RetrieveAPIView):
+  queryset = Post.objects.all()
+  serializer_class = PostModelSerializer
 
 @api_view(['PUT','DELETE'])
 def post_update(request,pk):
@@ -62,7 +54,6 @@ class StandardResultsSetPagination(PageNumberPagination):
 
 class CommentListView(generics.ListCreateAPIView):
     serializer_class = CommentSerializer
-    pagination_class = StandardResultsSetPagination
     permission_classes = (AllowAny,)
 
     def get_queryset(self):
@@ -83,27 +74,29 @@ class CommentDetailView(generics.RetrieveAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
-class CommentUpdateView(generics.UpdateAPIView,LoginRequiredMixin):
+class CommentUpdateView(generics.UpdateAPIView):
+    queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
 
-    def get_queryset(self):
-        return Comment.post_comment.for_user(
-            self.request.user,
-            comment=Comment.objects.get(id=self.kwargs["pk"])
-        )
+    # def get_queryset(self):
+    #     return Comment.post_comment.for_user(
+    #         self.request.user,
+    #         comment=Comment.objects.get(id=self.kwargs["pk"])
+    #     )
 
 class CommentDeleteView(generics.DestroyAPIView,LoginRequiredMixin):
+    queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
-
-    def get_queryset(self):
-        return Comment.post_comment.for_user(
-            self.request.user,
-            comment = Comment.objects.get(id = self.kwargs["pk"])
-        )
+    #
+    # def get_queryset(self):
+    #     return Comment.post_comment.for_user(
+    #         self.request.user,
+    #         comment = Comment.objects.get(id = self.kwargs["pk"])
+    #     )
 
 class ProductListView(generics.ListAPIView):
     queryset = Product.objects.all()
@@ -209,3 +202,7 @@ class PostLike_list(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
+class PostByCategoryView(generics.ListAPIView):
+  serializer_class = PostModelSerializer
+  def get_queryset(self):
+    return Post.my_post.category(category=Category.objects.get(id=self.kwargs["pk"]))

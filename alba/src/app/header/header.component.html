@@ -1,0 +1,72 @@
+<header>
+    <div class="top-menu" style="background:#000000;color:White;">
+        Alba Moda
+    </div>
+    <div class="top-menu" >
+        <ul class="left-area welcome-area">
+              <li *ngIf = "auth">
+                    Hello, {{username}}! welcome to my blog:)
+              </li>
+              <li *ngIf = " show">
+                    Hello nice people, welcome to my blog!
+            </li>
+        </ul>
+        <!-- left-area -->
+  
+      <div class="right-area">
+  
+        <div class="src-area">
+          <form method="GET" action="">
+              <input class="src-input" type="text" placeholder="Search" name = "title">
+              <button class="src-btn" type="submit"></button>
+           </form>
+        </div><!-- src-area -->
+  
+        <ul class="social-icons">
+          <li><a href="#"><img src=" /assets/static/images/facebook.png"></a></li>
+          <li><a href="#"><img src="/assets/static/images/insta.png"></a></li>
+          <li><a href="#"><img src="/assets/static/images/twitter.png"></a></li>
+        </ul><!-- right-area -->
+  
+                <ul class="social-icons" style="color:Black;">
+                    <li *ngIf = "auth && isAdmin">
+                        <a href="">Create Post</a>
+                    </li>
+                  <li *ngIf = "auth">
+                      <a href="/login/" (click)="logout()">Logout</a>
+                  </li>
+                  <li *ngIf = "show">
+                      <a routerLink = "/login/">Login</a>
+                  </li>
+                  <li *ngIf = "show">
+                      <a routerLink = "/register/">Register</a>
+                  </li>
+                  
+                </ul>
+  
+      </div><!-- right-area -->
+  
+    </div><!-- top-menu -->
+  
+    <div class="middle-menu center-text" style="height:150px;">
+            <a href="#" class="logo" style="height:200px;margin-top:-27px;width:300px;">
+                <img src="/assets/static/images/alba.jpg" alt="Logo Image"/>
+            </a>
+    </div>
+  
+    <div class="bottom-area">
+      <ul class="main-menu visible-on-click" id="main-menu">
+        <li><a href="/">HOME</a></li>
+        <li class="drop-down"><a href="#">CATEGORIES<i class="ion-ios-arrow-down"></i></a>
+          <ul class="drop-down-menu">
+              <li><a href="/category/1/">STYLE</a></li>
+              <li><a href="/category/2/">BEAUTY</a></li>
+              <li><a href="/category/3/">LIFESTYLE</a></li>
+         </ul>
+                </li>
+                <li><a href="/about/">ABOUT</a></li>
+                <li><a href="/store/">STORE</a></li>
+      </ul>
+      <!-- main-menu -->
+    </div>
+  </header>

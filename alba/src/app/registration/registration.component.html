@@ -1,0 +1,23 @@
+<ng-container >
+    <div class="mt-5" style="margin-top:330px;">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control w-25" placeholder="Enter username" [(ngModel)]="username">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control w-25" placeholder="Password" [(ngModel)]="password">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control w-25" placeholder="Email" [(ngModel)]="email">
+      </div>
+      
+        <button type="submit" class="btn btn-primary mb-2" (click)="register()">
+          Register
+        </button>
+        <div *ngIf="registration">
+          <h3>User is created</h3>
+        </div>
+      </div>
+    </ng-container>

@@ -53,15 +53,17 @@ class CommentSerializer(serializers.Serializer):
     comment = serializers.CharField()
     owner = UserSerializer(read_only=True)
     post = PostModelSerializer(read_only=True)
-    date = serializers.DateTimeField()
+    date = serializers.DateTimeField(read_only=True)
 
     def create(self, validated_data):
         c = Comment(**validated_data)
+        c.date = datetime.now()
         c.save()
         return c
 
     def update(self, instance, validated_data):
         instance.comment = validated_data.get('comment', instance.comment)
+        instance.date = datetime.now()
         instance.save()
         return instance
 
